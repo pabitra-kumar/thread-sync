@@ -40,3 +40,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - npx create-next-app@latest ./
 - npm install @clerk/nextjs @uploadthing/react mongoose svix uploadthing
 - npm install tailwindcss-animate
+- npm install @clerk/themes
+- npx shadcn-ui@latest init
+- npx shadcn-ui@latest add form
+- npx shadcn-ui@latest add input
