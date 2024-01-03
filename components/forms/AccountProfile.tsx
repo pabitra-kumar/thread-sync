@@ -20,6 +20,8 @@ import { ChangeEvent, useState } from 'react';
 import { Textarea } from "@/components/ui/textarea"
 import { isBase64Image } from '@/lib/utils';
 import { useUploadThing } from '@/lib/uploadthing';
+import { updateUser } from '@/lib/actions/user.actions';
+import { usePathname, useRouter } from 'next/navigation';
 
 interface Props {
     user: {
@@ -39,6 +41,8 @@ const Accountprofile = ({user , btnTitle}: Props) => {
 
   const [files, setFiles] = useState<File[]>([]);
   const {startUpload} = useUploadThing("media");
+  const router = useRouter()
+  const pathname = usePathname()
 
     const form = useForm({
         resolver: zodResolver(userValidation),
@@ -78,18 +82,31 @@ const Accountprofile = ({user , btnTitle}: Props) => {
         const hasImageChanged = isBase64Image(blob)
 
         if(hasImageChanged) {
+
           const imgRes = await startUpload(files);
+
+          console.log(imgRes);
 
           if(imgRes && imgRes[0].url) {
             values.profile_photo = imgRes[0].url;
           }
         }
 
-        // TODO: Update user profile
+        await updateUser({
+          userId: user.id,
+          username: values.username,
+          name: values.name,
+          bio: values.bio,
+          image: values.profile_photo,
+          path: pathname
+        })
 
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
-        console.log(values)
+        if(pathname == '/profile/edit')
+          router.back()
+        else
+          router.push('/')
+
+        // console.log(values)
       }
 
     return (
