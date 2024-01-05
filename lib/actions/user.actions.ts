@@ -38,3 +38,14 @@ export async function updateUser({
         throw new Error("Failed to create/update user: " + error.message);
     }
 }
+
+export async function fetchUser(userId: string) {
+    try {
+        await connectDB();
+        const user =  await User.findOne({ id: userId })
+        return user;
+        // .populate()
+    } catch (error: any) {
+        throw new Error(`Failed to fetch user:  ${error.message}`)
+    }
+}
