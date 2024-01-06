@@ -73,3 +73,74 @@ export async function fetchPosts(page = 1, size = 20) {
     throw new Error(`Error fetching posts: ${e}`);
   }
 }
+
+export async function fetchPostById(id: string) {
+  connectDB();
+
+  try {
+    const thread = await Thread.findOne({ _id: id })
+      .populate({
+        path: "author",
+        model: User,
+        select: "_id name id image",
+      })
+      .populate({
+        path: "children",
+        populate: [
+          {
+            path: "author",
+            model: User,
+            select: "_id name id parentId image",
+          },
+          {
+            path: "children",
+            model: Thread,
+            populate: {
+              path: "author",
+              model: User,
+              select: "_id name id parentId image",
+            },
+          },
+        ],
+      })
+      .exec();
+
+    return thread;
+  } catch (e: any) {
+    throw new Error(`Error fetching Post: ${e.message}`);
+  }
+}
+
+export async function addCommentToThread(
+  threadId: string,
+  content: string,
+  userId: string,
+  path: string
+) {
+  connectDB();
+
+  try {
+    const originalThread = await Thread.findById(threadId);
+
+    if (!originalThread) {
+      throw new Error("Thread not found");
+    }
+
+    const Comment = await Thread.create({
+      text: content,
+      author: userId,
+      parentId: threadId,
+      path: path,
+    });
+
+    const savedComment = await Comment.save();
+
+    originalThread.children.push(savedComment._id); // Add comment to thread
+
+    await originalThread.save();
+
+    revalidatePath(path);
+  } catch (error: any) {
+    throw new Error(`Error adding comment to thread: ${error.message}`);
+  }
+}

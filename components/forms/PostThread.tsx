@@ -18,8 +18,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { threadValidation } from "@/lib/validations/thread";
 import { createThread } from "@/lib/actions/thread.actions";
 
-// import { updateUser } from '@/lib/actions/user.actions';
-
 const PostThread = ({ userId }: { userId: string }) => {
   const router = useRouter();
   const pathname = usePathname();
@@ -33,7 +31,7 @@ const PostThread = ({ userId }: { userId: string }) => {
   });
 
   const onSubmit = async (values: z.infer<typeof threadValidation>) => {
-    console.log(values);
+    // console.log(values);
 
     await createThread({
       text: values.thread,
@@ -59,7 +57,7 @@ const PostThread = ({ userId }: { userId: string }) => {
               <FormLabel className="text-base-semibold text-light-2">
                 Content
               </FormLabel>
-              <FormControl>
+              <FormControl className="no-focus border border-dark-4 bg-dark-3 text-light-1">
                 <Textarea
                   rows={15}
                   className="no-focus border border-dark-4 bg-dark-3 text-light-1"
@@ -70,7 +68,7 @@ const PostThread = ({ userId }: { userId: string }) => {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="bg-primary-500">
           Post Thread
         </Button>
       </form>

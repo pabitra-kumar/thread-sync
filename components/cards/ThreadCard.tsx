@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 interface Params {
   id: string;
   currentUserId: string | null;
@@ -31,8 +34,69 @@ export default function ThreadCard({
   community,
   createdAt,
   comments,
+  isComment,
 }: Params) {
   return (
-    <article className="text-small-regular text-light-2">{content}</article>
+    <article className="w-full flex flex-col rounded-xl p-7 bg-dark-2">
+      <div className="flex items-start justify-between">
+        <div className="flex w-full flex-1 flex-row gap-4">
+          <div className="flex flex-col items-center">
+            <Link href={`/profile/${author.id}`} className="relative h-11 w-11">
+              <Image
+                src={author.image}
+                alt="profile_photo"
+                fill
+                className="rounded-full cursor-pointer"
+              />
+            </Link>
+            <div className="thread-card_bar" />
+          </div>
+          <div className="flex w-full flex-col">
+            <Link href={`/profile/${author.id}`} className="w-fit">
+              <h1 className="text-base-semibold text-light-1 cursor-pointer">
+                {author.name}
+              </h1>
+            </Link>
+
+            <p className="mt-2 text-small-regular text-light-2">{content}</p>
+
+            <div className="mt-5 flex flex-col gap-3">
+              <div className="flex gap-3.5">
+                <Image
+                  src="/assets/heart-gray.svg"
+                  alt="heart"
+                  width={24}
+                  height={24}
+                  className="cursor-pointer object-contain"
+                />
+                <Link href={`/thread/${id}`}>
+                  <Image
+                    src="/assets/reply.svg"
+                    alt="reply"
+                    width={24}
+                    height={24}
+                    className="cursor-pointer object-contain"
+                  />
+                </Link>
+                <Image
+                  src="/assets/repost.svg"
+                  alt="repost"
+                  width={24}
+                  height={24}
+                  className="cursor-pointer object-contain"
+                />
+                <Image
+                  src="/assets/share.svg"
+                  alt="share"
+                  width={24}
+                  height={24}
+                  className="cursor-pointer object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
   );
 }
