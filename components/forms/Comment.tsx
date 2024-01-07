@@ -79,8 +79,6 @@ const Comment = ({ threadId, currentUserImg, currentUserId }: Props) => {
                   {...field}
                 />
               </FormControl>
-              {/* <FormMessage className="text-small-regular text-red-600" /> */}
-              {/* </div> */}
             </FormItem>
           )}
         />
