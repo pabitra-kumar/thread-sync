@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import User from "../models/user.model";
 import { connectDB } from "../mongoose";
 import { FilterQuery, SortOrder } from "mongoose";
+import Thread from "../models/thread.model";
 
 interface Params {
   userId: string;
@@ -127,5 +128,32 @@ export async function fetchUsers({
 
   } catch (error: any) {
     throw new Error(`Failed to fetch users:  ${error.message}`);
+  }
+}
+
+export async function getActivity(userId: string) {
+  try {
+    connectDB();
+
+    // getting all the thread created by the user
+    const userThreads = await Thread.find({ 'author': userId });
+
+    // getting all the child thread Ids (Reply's) from Children field
+    const childThreadIds = userThreads.reduce((acc, userThread) => {
+      return acc.concat(userThread.children);
+    }, []);
+
+    const replies = await Thread.find({
+      _id: { $in: childThreadIds },
+      author: { $ne: userId }
+    }).populate({
+      path: 'author',
+      model: 'User',
+      select: 'name image _id'
+    });
+
+    return replies;
+  } catch (error: any) {
+    throw new Error(`Failed to fetch activity:  ${error.message}`);
   }
 }
