@@ -7,6 +7,7 @@ const ProfileHeader = ({
   username,
   bio,
   imgURL,
+  type,
 }: {
   accountId: string;
   authUserId: string;
@@ -14,6 +15,7 @@ const ProfileHeader = ({
   username: string;
   bio: string;
   imgURL: string;
+  type?: "User" | "Community";
 }) => {
   return (
     <div className="w-full flex flex-col justify-start">

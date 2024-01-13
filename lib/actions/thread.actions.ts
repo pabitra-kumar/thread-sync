@@ -224,6 +224,7 @@ export async function addCommentToThread(
       text: commentText,
       author: userId,
       parentId: threadId, // Set the parentId to the original thread's ID
+      path,
     });
 
     // Save the comment thread to the database
