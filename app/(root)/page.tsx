@@ -5,7 +5,7 @@ import { currentUser } from "@clerk/nextjs";
 export default async function Home() {
   const data = await fetchPosts(1, 30);
   const user = await currentUser();
-  console.log(data.posts.length);
+  // console.log(data.posts.length);
   return (
     <>
       <h1 className="head-text text-left">Home </h1>
@@ -15,7 +15,7 @@ export default async function Home() {
           <p className="no-result"> No Posts Found</p>
         ) : (
           data.posts.map((post) => (
-            <section className="relative">
+            <section key={post._id} className="relative">
               <ThreadCard
                 key={post._id}
                 id={post._id}
