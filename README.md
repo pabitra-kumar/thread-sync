@@ -1,41 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Thread-Sync: Next Rival of Threads / Twitter 
+
+<img src="./public/assets/logo.svg" alt="Logo" width="30%" height="30%" />
+
+Introducing [Thread-Sync](https://thread-sync.vercel.app/), a social media platform that stands as a rival to leading platforms like Twitter and Threads. Designed with user-centric innovation in mind, our web-app redefines the social networking experience, offering a seamless blend of intuitive features, real-time communication, and able to create a vibrant community atmosphere.
+
+## Table of Contents
+
+- [About the Project](#about-the-project)
+- [Getting Started](#getting-started)
+- [Features](#features)
+- [Installation](#installation)
+- [Contributing](#contributing)
+- [Contact](#contact)
+
+## About the Project
+
+[Thread-Sync](https://thread-sync.vercel.app/) ensures a personalized and immersive journey for every user, setting it apart as a compelling alternative in the realm of online social interaction. Join us and embark on a new era of social connectivity where individual expression and community building take center stage.
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to set up and run Thread-Sync:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Ensure you have Node.js installed. We recommend using Node.js 18.7 or later.
+2. Clone this repository to your local machine.
+3. Open a terminal and navigate to the project directory.
+4. run the command:
+   npm install
+5. Wait for all the node-modules to be installed in the Project Folder.
+6. Run the application:
+   npm run dev
+7. Application starts running on port 3000: `http://localhost:3000`
+8. Or, Access the application via your browser at https://thread-sync.vercel.app/.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Secure Authentication and Authorization by Clerk
+- real-time communication
+- User-Friendly Interface
+- able to create a vibrant community atmosphere
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+Detailed instructions on setting up the application can be found in the [Getting Started](#getting-started) section.
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+We welcome contributions from the community. To contribute to Healthcare.AI, follow these steps:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Fork the repository.
+2. Create a new branch for your feature: `git checkout -b feature-name`.
+3. Commit your changes: `git commit -m "Description of changes"`.
+4. Push to your branch: `git push origin feature-name`.
+5. Open a pull request.
 
-## Deploy on Vercel
+## Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Have questions or feedback? Contact us at thread-sync@gmail.com.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-# Commands
+<!-- ### Commands
 
 - npx create-next-app@latest ./
 - npm install @clerk/nextjs @uploadthing/react mongoose svix uploadthing
@@ -45,4 +67,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - npx shadcn-ui@latest add form
 - npx shadcn-ui@latest add input
 - npx shadcn-ui@latest add textarea
-- npx shadcn-ui@latest add tabs
+- npx shadcn-ui@latest add tabs -->
