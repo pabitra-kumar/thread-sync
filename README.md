@@ -45,7 +45,7 @@ Detailed instructions on setting up the application can be found in the [Getting
 
 ## Contributing
 
-We welcome contributions from the community. To contribute to Healthcare.AI, follow these steps:
+We welcome contributions from the community. To contribute to Thread-Sync, follow these steps:
 
 1. Fork the repository.
 2. Create a new branch for your feature: `git checkout -b feature-name`.
