@@ -1,4 +1,4 @@
-# Thread-Sync: Next Rival of Threads / Twitter 
+# Thread-Sync: Developed Like Threads / Twitter 
 
 <img src="./public/assets/logo.svg" alt="Logo" width="30%" height="30%" />
 
