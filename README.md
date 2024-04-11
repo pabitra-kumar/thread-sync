@@ -2,7 +2,7 @@
 
 <img src="./public/assets/logo.svg" alt="Logo" width="30%" height="30%" />
 
-Introducing [Thread-Sync](https://thread-sync.vercel.app/), a social media platform that stands as a rival to leading platforms like Twitter and Threads. Designed with user-centric innovation in mind, our web-app redefines the social networking experience, offering a seamless blend of intuitive features, real-time communication, and able to create a vibrant community atmosphere.
+Introducing [Thread-Sync](https://thread-sync.vercel.app/), a social media platform that stands as a platforms like Twitter and Threads. Designed with user-centric innovation in mind, our web-app redefines the social networking experience, offering a seamless blend of intuitive features, real-time communication, and able to create a vibrant community atmosphere.
 
 ## Table of Contents
 
